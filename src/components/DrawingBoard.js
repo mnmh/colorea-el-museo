@@ -12,14 +12,16 @@ class  DrawingBoard extends Component {
     render() {
         return (<>
             <div id="container">
-                <h1>Colorea el Museo</h1>
-                <div className="listado">
-                    <div className="item"></div>
-                    <div className="item"></div>
-                    <div className="item"></div>
-                    <div className="item"></div>
-                    <div className="item"></div>
-                    <div className="item"></div>
+                <div className="slides">
+                    {
+                        this.props.items.map((item, i) => {
+                            return(
+                                <>
+                                <div className="slide">{item.block}</div>
+                                </>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </>);
