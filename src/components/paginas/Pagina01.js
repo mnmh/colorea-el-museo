@@ -1,4 +1,5 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import {TimelineMax} from 'gsap';
 
 class Pagina01 extends Component {
     constructor(props) {
@@ -13,7 +14,10 @@ class Pagina01 extends Component {
     }
 
     componentDidMount() {
-
+        this.tweenIntro = new TimelineMax();
+        this.tweenIntro.add('start')
+        .fromTo(this.titulo_elem, 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        ;
     }
 
     render() {
