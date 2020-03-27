@@ -10,3 +10,20 @@ body {
     height: 100%;
     opacity: 0.2;
 }
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.imgcontainer {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
