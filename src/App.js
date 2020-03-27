@@ -3,6 +3,7 @@ import './styles/source.scss';
 
 import Pagina01 from './components/paginas/Pagina01';
 import Pagina02 from './components/paginas/Pagina02';
+import Pagina03 from './components/paginas/Pagina03';
 
 function App() {
   let items = [
@@ -12,7 +13,7 @@ function App() {
   ]
   return (
     <div className="App">
-      <Pagina02 />
+      <Pagina03 />
     </div>
   );
 }

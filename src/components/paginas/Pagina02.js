@@ -8,6 +8,7 @@ class Pagina02 extends Component {
         super(props);
 
         this.hola = null;
+        this.tweenIntro =null;
     }
 
     componentDidMount(){
