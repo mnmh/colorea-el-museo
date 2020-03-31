@@ -8,8 +8,7 @@ class Canvas extends Component {
         super(props);
         this.state = {
             loading: true,
-            canvas: null,
-            color: 'color_1'
+            canvas: null
         }
     }
 
@@ -21,6 +20,8 @@ class Canvas extends Component {
             let img;
             let sW;
 
+            let color = [255,255,255,255];
+
             p.preload = function() {
                 img = p.loadImage(self.props.img);
             }
@@ -30,7 +31,7 @@ class Canvas extends Component {
                 drawingBoard = p.createGraphics(800,450);
                 p.background(255);
                 p.image(img, 0, 0, 800,450);
-                sW = 30;
+                sW = 20;
             }
 
             p.draw = function() {
@@ -40,9 +41,13 @@ class Canvas extends Component {
             }
 
             p.mouseDragged = function() {
-                drawingBoard.stroke(100);
+                drawingBoard.stroke(color[0],color[1],color[2]);
                 drawingBoard.strokeWeight(sW);
                 drawingBoard.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+            }
+
+            p.changeColor = function(color_temp){
+                color = color_temp;
             }
         }
 
@@ -51,6 +56,14 @@ class Canvas extends Component {
         this.setState({
             canvas: canvas_draw
         })
+
+        let btns = document.getElementsByClassName('colorItem');
+        for(let i=0;i<btns.length;i++) {
+            btns[i].addEventListener('click', (e) => {
+                const color = e.target.getAttribute('data-color');
+                canvas_draw.changeColor(color.split(','));
+            })
+        };
     }
 
     componentWillUnmount() {
@@ -61,23 +74,23 @@ class Canvas extends Component {
         return(
             <>
                 <div className="paleta">
-                    <Paleta color={[0,0,0]} />
-                    <Paleta color={[245,232,88]} />
-                    <Paleta color={[144,245,88]} />
-                    <Paleta color={[88,177,245]} />
-                    <Paleta color={[163,97,72]} />
-                    <Paleta color={[243,166,206]} />
-                    <Paleta color={[240,72,72]} />
-                    <Paleta color={[240,166,24]} />
-                    <Paleta color={[197,240,24]} />
-                    <Paleta color={[166,24,240]} />
-                    <Paleta color={[40,24,240]} />
+                    <Paleta color={[[30,30,30],[102,102,102],[170,170,170],[230,230,230],[255,255,255]]} />
+                    <Paleta color={[[245,232,88],[247,237,121],[249,241,155],[251,246,188],[253,250,222]]} />
+                    <Paleta color={[[144,245,88],[166,247,121],[188,250,155],[211,251,188],[233,253,222]]} />
+                    <Paleta color={[[88,177,245],[121,193,247],[155,209,248],[188,224,251],[222,239,253]]} />
+                    <Paleta color={[[163,97,72],[181,128,109],[200,160,144],[218,192,182],[237,223,218]]} />
+                    <Paleta color={[[243,166,206],[245,184,216],[248,202,226],[250,219,235],[253,237,245]]} />
+                    <Paleta color={[[240,72,72],[241,109,109],[243,145,145],[246,182,182],[250,219,218]]} />
+                    <Paleta color={[[240,166,24],[243,184,70],[246,202,116],[249,219,163],[252,237,209]]} />
+                    <Paleta color={[[197,240,24],[209,243,70],[220,246,116],[232,249,162],[243,252,209]]} />
+                    <Paleta color={[[166,24,240],[184,70,243],[202,116,246],[219,163,249],[237,209,252]]} />
+                    <Paleta color={[[40,24,240],[83,70,243],[126,115,246],[169,163,250],[212,209,253]]} />
                     <div className="bloque herramientas">
-                        <div className="item borrador"></div>
-                        <div className="item size_1"></div>
-                        <div className="item size_2"></div>
-                        <div className="item size_3"></div>
-                        <div className="item size_4 active"></div>
+                        <div className="item size size_0"></div>
+                        <div className="item size size_1"></div>
+                        <div className="item size size_2"></div>
+                        <div className="item size size_3"></div>
+                        <div className="item size size_4 active"></div>
                     </div>
                 </div>
                 <div
