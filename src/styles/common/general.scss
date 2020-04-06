@@ -29,3 +29,58 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.nav {
+    position: fixed;
+    z-index: 100;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        opacity: 0;
+
+        &.active {
+            opacity: 1;
+        }
+
+        .icon {
+            width: 90px;
+            height: 40px;
+            background-size: 40%;
+            background-repeat: no-repeat;
+            background-color: white;
+            background-position: center;
+            border: 2px solid #6b90cc;
+        }
+
+        &.prev {
+            .icon {
+                border-left: none;
+                -webkit-border-top-right-radius: 10px;
+                -webkit-border-bottom-right-radius: 10px;
+                -moz-border-radius-topright: 10px;
+                -moz-border-radius-bottomright: 10px;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+        }
+
+        &.next {
+            .icon {
+                border-right: none;
+                -webkit-border-top-left-radius: 10px;
+                -webkit-border-bottom-left-radius: 10px;
+                -moz-border-radius-topleft: 10px;
+                -moz-border-radius-bottomleft: 10px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        }
+    }
+}
