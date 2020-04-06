@@ -19,6 +19,27 @@ class App extends Component {
     this.state = {
       pagina: 1
     }
+
+    this.nextNav = this.nextNav.bind(this);
+    this.prevNav = this.prevNav.bind(this);
+  }
+
+  nextNav(){
+    var pagina = this.state.pagina;
+    if(pagina < 8){
+      this.setState({
+        pagina: pagina + 1
+      })
+    }
+  }
+
+  prevNav(){
+    var pagina = this.state.pagina;
+    if(pagina > 1){
+      this.setState({
+        pagina: pagina - 1
+      })
+    }
   }
 
   render(){
@@ -28,6 +49,8 @@ class App extends Component {
     else if(this.state.pagina == 4) block = <Pagina04/>
     else if(this.state.pagina == 5) block = <Pagina05/>
     else if(this.state.pagina == 6) block = <Pagina06/>
+    else if(this.state.pagina == 7) block = <Pagina07/>
+    else if(this.state.pagina == 8) block = <Pagina08/>
     
     
     
@@ -39,7 +62,8 @@ class App extends Component {
         <div className="nav">
           <div
             className={(this.state.pagina > 1) ? 'prev active' : 'prev'}
-          >
+            onClick={this.prevNav}
+            >
             <div
               className="icon"
               style={{backgroundImage: `url(${prev})`}}
@@ -50,6 +74,7 @@ class App extends Component {
 
           <div
             className={(this.state.pagina < 8) ? 'next active' : 'next'}
+            onClick={this.nextNav}
           >
             <div
               className="icon"
