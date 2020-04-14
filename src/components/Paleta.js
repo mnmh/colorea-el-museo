@@ -10,7 +10,7 @@ var Paleta = props => {
             opacity.map((opa, i) => {
                 return(
                     <div
-                        className="item colorItem"
+                        className={(props.color[i][0] == 255 && props.color[i][1] == 255 && props.color[i][2] == 255) ? "item colorItem btn_active" : "item colorItem"}
                         style={{backgroundColor: `rgba(${props.color[i][0]},${props.color[i][1]},${props.color[i][2]})`}}
                         data-item={i}
                         data-color={`${props.color[i][0]},${props.color[i][1]},${props.color[i][2]}`}

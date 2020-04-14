@@ -49,6 +49,10 @@ class Canvas extends Component {
             p.changeColor = function(color_temp){
                 color = color_temp;
             }
+
+            p.changeSize = function(size_temp){
+                sW = size_temp;
+            }
         }
 
         var canvas_draw = new p5(s, 'canvas');
@@ -60,8 +64,22 @@ class Canvas extends Component {
         let btns = document.getElementsByClassName('colorItem');
         for(let i=0;i<btns.length;i++) {
             btns[i].addEventListener('click', (e) => {
+                let btn_active = document.getElementsByClassName('btn_active');
+                btn_active[0].classList.remove('btn_active');
                 const color = e.target.getAttribute('data-color');
                 canvas_draw.changeColor(color.split(','));
+                e.target.classList.add('btn_active')
+            })
+        };
+
+        btns = document.getElementsByClassName('size');
+        for(let i=0;i<btns.length;i++) {
+            btns[i].addEventListener('click', (e) => {
+                let size_active = document.getElementsByClassName('size_active');
+                size_active[0].classList.remove('size_active');
+                const size = e.target.getAttribute('data-size');
+                canvas_draw.changeSize(size);
+                e.target.classList.add('size_active')
             })
         };
     }
@@ -86,11 +104,11 @@ class Canvas extends Component {
                     <Paleta color={[[166,24,240],[184,70,243],[202,116,246],[219,163,249],[237,209,252]]} />
                     <Paleta color={[[40,24,240],[83,70,243],[126,115,246],[169,163,250],[212,209,253]]} />
                     <div className="bloque herramientas">
-                        <div className="item size size_0"></div>
-                        <div className="item size size_1"></div>
-                        <div className="item size size_2"></div>
-                        <div className="item size size_3"></div>
-                        <div className="item size size_4 active"></div>
+                        <div data-size="1" className="item size size_0"></div>
+                        <div data-size="5" className="item size size_1"></div>
+                        <div data-size="10" className="item size size_2"></div>
+                        <div data-size="15" className="item size size_3"></div>
+                        <div data-size="20" className="item size size_4 size_active"></div>
                     </div>
                 </div>
                 <div

@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import './styles/source.scss';
 
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
+
 import next from './img/nav/next.png';
 import prev from './img/nav/prev.png';
 
@@ -56,33 +63,41 @@ class App extends Component {
     
     return (
       <div className="App">
+
+        <BrowserView>
         
-        {block}
+          {block}
 
-        <div className="nav">
-          <div
-            className={(this.state.pagina > 1) ? 'prev active' : 'prev'}
-            onClick={this.prevNav}
+          <div className="nav">
+            <div
+              className={(this.state.pagina > 1) ? 'prev active' : 'prev'}
+              onClick={this.prevNav}
+              >
+              <div
+                className="icon"
+                style={{backgroundImage: `url(${prev})`}}
+              ></div>
+              <div className="name">Anterior</div>
+            </div>
+
+
+            <div
+              className={(this.state.pagina < 8) ? 'next active' : 'next'}
+              onClick={this.nextNav}
             >
-            <div
-              className="icon"
-              style={{backgroundImage: `url(${prev})`}}
-            ></div>
-            <div className="name">Anterior</div>
+              <div
+                className="icon"
+                style={{backgroundImage: `url(${next})`}}
+              ></div>
+              <div className="name">Siguiente</div>
+            </div>
           </div>
 
+        </BrowserView>
 
-          <div
-            className={(this.state.pagina < 8) ? 'next active' : 'next'}
-            onClick={this.nextNav}
-          >
-            <div
-              className="icon"
-              style={{backgroundImage: `url(${next})`}}
-            ></div>
-            <div className="name">Siguiente</div>
-          </div>
-        </div>
+        <MobileView>
+          Esta aplicación necesita una tablet o computador
+        </MobileView>
       </div>
     );
   }

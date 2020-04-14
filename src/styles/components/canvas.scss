@@ -41,7 +41,7 @@
             }
 
             &.size {
-                &.active {
+                &.size_active {
                     background-color: #555;
                     border-color: #555;
                 }
@@ -75,7 +75,7 @@
                 }
             }
 
-            &.active {
+            &.btn_active {
                 border-color: #000;
             }
         }
