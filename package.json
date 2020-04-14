@@ -1,6 +1,7 @@
 {
   "name": "colorea",
   "version": "0.1.0",
+  "homepage": "/colorea-el-museo",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
