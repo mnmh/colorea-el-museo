@@ -33,7 +33,7 @@ class App extends Component {
 
   nextNav(){
     var pagina = this.state.pagina;
-    if(pagina < 8){
+    if(pagina < 7){
       this.setState({
         pagina: pagina + 1
       })
@@ -53,11 +53,10 @@ class App extends Component {
     let block = <Pagina01 />
     if(this.state.pagina == 2) block = <Pagina02/>
     else if(this.state.pagina == 3) block = <Pagina03/>
-    else if(this.state.pagina == 4) block = <Pagina04/>
-    else if(this.state.pagina == 5) block = <Pagina05/>
-    else if(this.state.pagina == 6) block = <Pagina06/>
-    else if(this.state.pagina == 7) block = <Pagina07/>
-    else if(this.state.pagina == 8) block = <Pagina08/>
+    else if(this.state.pagina == 4) block = <Pagina05/>
+    else if(this.state.pagina == 5) block = <Pagina06/>
+    else if(this.state.pagina == 6) block = <Pagina07/>
+    else if(this.state.pagina == 7) block = <Pagina08/>
     
     
     
@@ -82,7 +81,7 @@ class App extends Component {
 
 
             <div
-              className={(this.state.pagina < 8) ? 'next active' : 'next'}
+              className={(this.state.pagina < 7) ? 'next active' : 'next'}
               onClick={this.nextNav}
             >
               <div

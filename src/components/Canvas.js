@@ -88,6 +88,14 @@ class Canvas extends Component {
         this.state.canvas.remove();
     }
 
+    descarga() {
+        var canvas = document.getElementById("defaultCanvas0");
+        var link = document.createElement('a');
+        link.download = 'dibujo.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    }
+
     render() {
         return(
             <>
@@ -114,6 +122,11 @@ class Canvas extends Component {
                 <div
                     id="canvas"
                 ></div>
+                <div id="descarga">
+                    <a id="descarga_btn" onClick={this.descarga} download="download">
+                        Descarga y comparte tu dibujo! <span>#MuseosEnCasa</span>
+                    </a>
+                </div>
             </>
         );
     }

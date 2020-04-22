@@ -81,3 +81,26 @@
         }
     }
 }
+
+#descarga {
+    width: 100%;
+    text-align: center;
+
+    a {
+        background-color: $azul;
+        padding: 10px;
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        border-radius: 10px;
+        margin-top: 10px;
+        
+        span{
+            background-color: rgba(255,255,255,0.3);
+            padding: 5px;
+            display: inline-block;
+            margin-left: 15px;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import {TimelineMax} from 'gsap';
+import {TimelineMax,gsap} from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin'
+
 
 import titulo from '../../img/ilustraciones/titulo.png';
 import buscamos from '../../img/ilustraciones/buscamos.png';
 import logo from '../../img/ilustraciones/logo.png';
 import hash from '../../img/ilustraciones/hash.png';
+
+gsap.registerPlugin(CSSPlugin)
 
 class Pagina01 extends Component {
     constructor(props) {
